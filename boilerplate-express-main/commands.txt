@@ -1,0 +1,14 @@
+1. DotEnv is a lightweight npm package that automatically loads 
+environment variables from a .env file into the process.env object.
+
+2. To use DotEnv, Run command "npm i dotenv".
+
+3. Then in your app, require and configure the package like this: 
+		require('dotenv').config()
+
+
+To run the files using NodeJS:
+
+1. npm i
+
+2. node server.js
