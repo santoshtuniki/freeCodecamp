@@ -1,0 +1,7 @@
+1. Open shell
+
+2. Run "npm i" to install pacakges
+
+3. Run "node server.js" to run on server
+
+4. Copy "Webview URL" and paste it in 'freeCodeCamp' 

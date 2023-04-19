@@ -1,3 +1,21 @@
 {
-  "author": "Saisantoshkumar Tuniki"
+  "name": "fcc-learn-npm-package-json",
+  "author": "Saisantoshkumar Tuniki",
+  "description": "This project does something awesome",
+  "keywords": [ "freecodecamp", "backend", "node.js" ],
+  "license": "MIT",
+  "version": "1.2.0",
+  "dependencies": {
+	"express": "^4.14.0",
+	"tilde": "~1.2.18",
+	"carat": "^1.2.13"
+  },
+  "main": "server.js",
+  "scripts": {
+	"start": "node server.js"
+  },
+  "repository": {
+	"type": "git",
+	"url": "https://idontknow/todo.git"
+  }
 }
