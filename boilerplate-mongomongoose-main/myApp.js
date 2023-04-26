@@ -13,11 +13,20 @@ const personSchema = new mongoose.Schema({
 	age: Number,
 	favoriteFoods: [String]
 });
-// An instance of model is called 'documents'.
+// A model allows you to create instances of your objects, called 'documents'.
 let Person = mongoose.model('Person', personSchema);
 
+// Create and Save a Record of a Model
 const createAndSavePerson = (done) => {
-	done(null /*, data*/);
+	const john = new Person({
+		name: 'John',
+		age: 26,
+		favoriteFoods: ["Biryani", "Tomato", "Brinjal"]
+	});
+	john.save(function (err, data) {
+		if (err) return console.error(err);
+		done(null, data)
+	});
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
