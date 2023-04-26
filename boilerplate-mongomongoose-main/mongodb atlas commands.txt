@@ -1,0 +1,45 @@
+Installation of MongoDB:
+1. Enter MongoDB Atlas/download
+
+2. Select Package to "MSI" and download
+
+3. Open installation in PC and double click on installation
+
+4. Click next -> Agree to terms -> choose 'complete' installation
+
+***********************************************************************************
+
+Setting up MongoDB:
+1. Create a folder 'data' in C:/ drive and a 'db' folder inside "data"
+
+2. open 'git bash' and run cmd "cd ~" ( To home folder )
+
+3. Run "touch .bash_profile" 
+( A HiddenFile -- Shortcut to launch mongo.exe & mongod.exe from hyperTerminal )
+
+4. Run "vim bash_profile"
+( Edit file using vim -- update file path & server version)
+
+5. Press 'i' to insert & 'esc' to escape insert mode in VIM 
+
+6. Run ":wq!"	( To save & exit vim )
+
+7. Close terminal & reopen terminal & run "mongo --version" to check if it works correctly
+
+***********************************************************************************
+
+Running MongoDB:
+1. Run "mongod" to start the MongoDB Server
+
+2. Run "mongo" in a new tab to connect to mongodb database
+
+***********************************************************************************
+
+Connect to MongoDB Atlas:
+1. Sign in to your MongoDB Atlas Account ( Register, if not )
+
+2. Click on 'Database' at the left
+
+3. You will see your collection ( click 'connect' to cluster, if not )
+
+4. Follow commands in 'Connect' to link mongodb database in PC to Atlas.

@@ -1,54 +1,67 @@
 require('dotenv').config();
 
+// Set Up Mongoose
+const mongoose = require('mongoose');
+// Default port	( 27017 ) --> mongoose.connect('mongodb://localhost:27017/myapp');
+const mySecret = process.env['MONGO_URI'];
+mongoose.connect(mySecret, { useNewUrlParser: true, useUnifiedTopology: true });
 
-let Person;
+// Create a Model ( CRUD Part I - CREATE )
+// Each schema defines the shape of the "documents" within that collection and maps to a MongoDB collection. 
+const personSchema = new mongoose.Schema({
+	name: String,
+	age: Number,
+	favoriteFoods: [String]
+});
+// An instance of model is called 'documents'.
+let Person = mongoose.model('Person', personSchema);
 
 const createAndSavePerson = (done) => {
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 const createManyPeople = (arrayOfPeople, done) => {
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 const findPeopleByName = (personName, done) => {
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 const findOneByFood = (food, done) => {
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 const findPersonById = (personId, done) => {
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 const findEditThenSave = (personId, done) => {
-  const foodToAdd = "hamburger";
+	const foodToAdd = "hamburger";
 
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 const findAndUpdate = (personName, done) => {
-  const ageToSet = 20;
+	const ageToSet = 20;
 
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 const removeById = (personId, done) => {
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 const removeManyPeople = (done) => {
-  const nameToRemove = "Mary";
+	const nameToRemove = "Mary";
 
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 const queryChain = (done) => {
-  const foodToSearch = "burrito";
+	const foodToSearch = "burrito";
 
-  done(null /*, data*/);
+	done(null /*, data*/);
 };
 
 /** **Well Done !!**
