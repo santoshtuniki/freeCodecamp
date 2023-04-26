@@ -2,7 +2,7 @@ require('dotenv').config();
 
 // Set Up Mongoose
 const mongoose = require('mongoose');
-// Default port	( 27017 ) --> mongoose.connect('mongodb://localhost:27017/myapp');
+// Default port	( 27017 ) --> mongoose.connect('mongodb://localhost:27017/personDB');
 const mySecret = process.env['MONGO_URI'];
 mongoose.connect(mySecret, { useNewUrlParser: true, useUnifiedTopology: true });
 
@@ -25,6 +25,7 @@ const createAndSavePerson = (done) => {
 	});
 	john.save(function (err, data) {
 		if (err) return console.error(err);
+		console.log(data);
 		done(null, data)
 	});
 };
@@ -37,16 +38,28 @@ const createManyPeople = (arrayOfPeople, done) => {
 	})
 };
 
+// Use Model.find() to Search Your Database
 const findPeopleByName = (personName, done) => {
-	done(null /*, data*/);
+	Person.find({ name: personName }, function (err, data) {
+		if (err) return console.log(err);
+		done(null, data)
+	})
 };
 
+// Use Model.findOne() to Return a Single Matching Document from Your Database
 const findOneByFood = (food, done) => {
-	done(null /*, data*/);
+	Person.findOne({ favoriteFoods: food }, function (err, data) {
+		if (err) return console.log(err);
+		done(null, data)
+	})
 };
 
+// Use model.findById() to Search Your Database By _id
 const findPersonById = (personId, done) => {
-	done(null /*, data*/);
+	Person.findById(personId, function (err, data) {
+		if (err) return console.log(err);
+		done(null, data)
+	})
 };
 
 const findEditThenSave = (personId, done) => {
