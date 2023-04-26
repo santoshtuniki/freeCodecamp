@@ -62,7 +62,7 @@ const findPersonById = (personId, done) => {
 	})
 };
 
-// Perform Classic Updates by Running Find, Edit, then Save
+// Updates by Running Find, Edit, then Save
 const findEditThenSave = (personId, done) => {
 	const foodToAdd = "hamburger";
 	Person.findById(personId, (err, person) => {
@@ -74,26 +74,39 @@ const findEditThenSave = (personId, done) => {
 	})
 };
 
+// Updates on a Document Using model.findOneAndUpdate()
 const findAndUpdate = (personName, done) => {
 	const ageToSet = 20;
-
-	done(null /*, data*/);
+	Person.findOneAndUpdate({ name: personName }, { age: ageToSet }, { new: true }, (err, data) => {
+		if (err) return console.log(err);
+		done(null, data)
+	});
 };
 
+// Delete One Document Using model.findByIdAndRemove()
 const removeById = (personId, done) => {
-	done(null /*, data*/);
+	Person.findByIdAndRemove(personId, function (err, data) {
+		if (err) return console.log(err);
+		console.log(data);
+	})
+
 };
 
+// Delete Many Documents with model.remove()
 const removeManyPeople = (done) => {
 	const nameToRemove = "Mary";
 
 	done(null /*, data*/);
 };
 
+// Chain Search Query Helpers to Narrow Search Results
 const queryChain = (done) => {
 	const foodToSearch = "burrito";
-
-	done(null /*, data*/);
+	let query = Person.find({ favoriteFoods: foodToSearch }).sort({ name: 'asc' }).limit(2);
+	query.select('-age').exec(function (err, data) {
+		if (err) throw err;
+		done(null, data);
+	});
 };
 
 /** **Well Done !!**
