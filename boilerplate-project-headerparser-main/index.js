@@ -16,15 +16,25 @@ app.use(express.static('public'));
 
 // http://expressjs.com/en/starter/basic-routing.html
 app.get('/', function (req, res) {
-  res.sendFile(__dirname + '/views/index.html');
+	res.sendFile(__dirname + '/views/index.html');
 });
 
 // your first API endpoint...
 app.get('/api/hello', function (req, res) {
-  res.json({ greeting: 'hello API' });
+	res.json({ greeting: 'hello API' });
 });
+
+// To trace back to ip address
+app.enable('trust proxy');
+app.get("/api/whoami", (req, res) => {
+	res.json({
+		ipaddress: req.ip,
+		language: req.get('Accept-Language'),
+		software: req.get('User-Agent')
+	})
+})
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT || 3000, function () {
-  console.log('Your app is listening on port ' + listener.address().port);
+	console.log('Your app is listening on port ' + listener.address().port);
 });
