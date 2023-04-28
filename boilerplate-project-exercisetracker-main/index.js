@@ -51,6 +51,12 @@ app.post('/api/users', async (req, res) => {
 	res.json(user);
 });
 
+// get a list of all users
+app.get('/api/users', async (req, res) => {
+	const users = await User.find();
+	res.json(users);
+});
+
 // add exercise fields
 app.post('/api/users/:_id/exercises', async (req, res) => {
 	const userId = req.params._id;
