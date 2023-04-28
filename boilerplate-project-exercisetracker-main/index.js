@@ -117,7 +117,7 @@ app.get('/api/users/:_id/logs', async (req, res) => {
 		limit = 100;
 	}
 
-	// find exercises by userId
+	// find exercises by filter
 	let exercises = await Exercise.find(filter).limit(limit);
 	exercises = exercises.map(exercise => {
 		return {
@@ -138,16 +138,8 @@ app.get('/api/users/:_id/logs', async (req, res) => {
 		_id: userId,
 		log: exercises
 	});
-})
-
-
-// log array of all the exercises added.
-// app.get('/api/users/:_id/logs', (req, res) => {
-
-// })
-
-
+});
 
 const listener = app.listen(process.env.PORT || 3000, () => {
 	console.log('Your app is listening on port ' + listener.address().port)
-})
+});
